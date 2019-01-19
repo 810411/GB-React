@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 3</title>
+</head>
+<body>
+<script type="text/javascript">
+  class Human {
+    constructor(name, age, dateOfBirth) {
+      this.name = typeof name === 'string' && name;
+      this.age = typeof age === 'number' && age;
+      this.dateOfBirth = (typeof dateOfBirth === 'string' || dateOfBirth instanceof Date) && dateOfBirth;
+    }
+
+    displayInfo() {
+      return `${this.name}, ${this.age}, ${this.dateOfBirth}`;
+    }
+  }
+
+  class Employee extends Human {
+    constructor(name, age, dateOfBirth, salary, department) {
+      super(name, age, dateOfBirth);
+      this.salary = typeof salary === 'number' && salary;
+      this.department = typeof department === 'string' && department;
+    }
+
+    displayInfo() {
+      return `${super.displayInfo()}, ${this.salary}, ${this.department}`;
+    }
+  }
+
+  class Manager extends Employee {
+    constructor(name, age, dateOfBirth, salary, department, ...developers) {
+      super(name, age, dateOfBirth, salary, department);
+      this.developers = [];
+      this.addDevelopers(developers);
+    }
+
+    displayInfo() {
+      const developersNames = this.developers.map(dev => dev.name);
+      return `${super.displayInfo()}, Devs:${developersNames}`;
+    }
+
+    addDevelopers(...developers) {
+      developers.forEach(developer => {
+        if (developer instanceof Developer) {
+          this.developers.push(developer)
+        }
+      });
+    }
+
+    removeDeveloper(developer) {
+      const i = this.developers.indexOf(developer);
+      if (developer instanceof Developer && i !== -1) {
+        this.developers.splice(i, 1);
+        developer.removeManager(this);
+      }
+    }
+  }
+
+  class Developer extends Employee {
+    constructor(name, age, dateOfBirth, salary, department, manager) {
+      super(name, age, dateOfBirth, salary, department);
+      this.setManager(manager);
+    }
+
+    displayInfo() {
+      return `${super.displayInfo()}${this.manager ? ', Manager: ' + this.manager.name : ''}`;
+    }
+
+    setManager(manager) {
+      if (manager instanceof Manager) {
+        this.manager = manager;
+        manager.addDevelopers(this);
+      } else {
+        this.manager = undefined;
+      }
+    }
+
+    removeManager(manager) {
+      if (manager instanceof Manager) {
+        this.manager = undefined;
+        manager.removeDeveloper(this);
+      }
+    }
+  }
+
+  const
+    teamlead = new Manager('Max', 37, '01.01.1982', 5000, 'Frontend'),
+    junior = new Developer('Vasiliy', 23, '12.12.1996', 1000, 'Frontend', teamlead),
+    middle = new Developer('Ivan', 32, '01.12.1987', 2500, 'Frontend', teamlead),
+    senior = new Developer('Petr', 41, '12.01.1978', 4000, 'Frontend');
+
+  console.log(teamlead.displayInfo());
+  console.log(junior.displayInfo());
+  console.log(middle.displayInfo());
+  console.log(senior.displayInfo());
+
+  middle.removeManager(teamlead);
+  console.log(middle.displayInfo());
+
+  senior.setManager(teamlead);
+  console.log(senior.displayInfo());
+
+  console.log(teamlead.displayInfo());
+  teamlead.removeDeveloper(junior);
+  console.log(teamlead.displayInfo());
+
+</script>
+</body>
+</html>
