@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 2</title>
+</head>
+<body>
+<script type="text/javascript">
+  /**
+   * Calculate area for circle, rectangle and triangle
+   *
+   * @returns {object}: { area, figure, input } where area - result, figure - name, input - array of arguments
+   * @param args {number}: variable number of arguments, may be one argument for diameter of circle, two for sides of
+   * rectangle, or three for sides of triangle. Other numbers of argument throw error.
+   */
+  function calculateArea(...args) {
+    switch (args.length) {
+      case 1:
+        return {
+          area: 1 / 4 * Math.PI * args[0],
+          figure: 'circle',
+          input: args
+        };
+      case 2:
+        return {
+          area: args[0] * args[1],
+          figure: 'rectangle',
+          input: args
+        };
+      case 3:
+        const p = (args.reduce((a, b) => a + b, 0))/2;
+
+        return {
+          area: Math.sqrt(p * (p - args[0]) * (p - args[1]) * (p - args[2])),
+          figure: 'triangle',
+          input: args
+        };
+      default:
+        throw new Error('Invalid number of input arguments')
+    }
+  }
+
+  console.log(JSON.stringify(calculateArea(2)));
+  console.log(JSON.stringify(calculateArea(2, 2)));
+  console.log(JSON.stringify(calculateArea(2, 2, 2)));
+</script>
+</body>
+</html>

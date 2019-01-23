@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1</title>
+</head>
+<body>
+<script type="text/javascript">
+  const sqr = n => console.log('tick', n);
+
+  function loop(times = 0, cb = null) {
+    cb && Array.from(new Array(times)).forEach((_, i) => cb(i + 1))
+  }
+
+  loop(3, sqr);
+  loop(10);
+</script>
+</body>
+</html>

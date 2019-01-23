@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 5</title>
+</head>
+<body>
+<script type="text/javascript">
+  const fetchArr = Array.from(new Array(10))
+    .map((_, i) => fetch(`https://jsonplaceholder.typicode.com/users/${i + 1}`));
+
+  Promise.all(fetchArr)
+    .then(responseArr => responseArr
+      .map(response => {
+        if (response.status === 200) {
+          return response.json()
+        }
+      })
+    )
+    .then(results => Promise.all(results))
+    .then(result => result.forEach(item => console.log(item)))
+    .catch(console.error)
+</script>
+</body>
+</html>
