@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
 class Developer extends Component {
   constructor(props) {
@@ -9,10 +9,10 @@ class Developer extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Fragment>
         <h1>Name: {this.name}</h1>
         <h2>City: {this.city}</h2>
-      </React.Fragment>
+      </Fragment>
     )
   }
 }
