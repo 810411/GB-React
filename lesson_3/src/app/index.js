@@ -10,7 +10,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/menu-items.json')
+    fetch('http://localhost:3000/data/menu-items.jso')
       .then(response => {
         if (response.status === 200) {
           return response.json()
@@ -20,6 +20,7 @@ class App extends Component {
       })
       .then(result =>
         this.setState({menu_items: result}))
+      .catch(console.error)
   }
 
   handleOnMenuClick = event => {
