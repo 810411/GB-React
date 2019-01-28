@@ -10,7 +10,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/menu-items.jso')
+    fetch('http://localhost:3000/data/menu-items.json')
       .then(response => {
         if (response.status === 200) {
           return response.json()
