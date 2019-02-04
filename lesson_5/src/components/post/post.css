@@ -1,5 +1,6 @@
 .post {
-    margin: 5px 0;
+    flex: 1 1 100%;
+    margin: 5px auto;
     color: darkslateblue;
     border: 1px solid mediumpurple;
     box-shadow: 1px 2px 0 1px lightgray;
@@ -17,13 +18,4 @@
     padding: 0 10px;
     text-align: justify;
     text-indent: 3rem;
-}
-
-.post .date {
-    color: darkgray;
-}
-
-.post .name {
-    margin: 0 20px;
-    color: cornflowerblue;
 }
