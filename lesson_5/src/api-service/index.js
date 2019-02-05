@@ -18,12 +18,27 @@ class ApiService {
 
   getAllComments = async () => {
     const res = await this._getResource(`/comments`);
-    return res.map(this._correctedComments);
+    return res.map(this._correctedComment);
   };
 
   getAllUsers = async () => {
     const res = await this._getResource(`/users`);
-    return res.map(this._correctedUsers);
+    return res.map(this._correctedUser);
+  };
+
+  getPost = async (id) => {
+    const post = await this._getResource(`/posts/${id}`);
+    return [this._correctedPost(post)];
+  };
+
+  getComment = async (id) => {
+    const comment = await this._getResource(`/comments/${id}`);
+    return [this._correctedComment(comment)];
+  };
+
+  getUser = async (id) => {
+    const user = await this._getResource(`/users/${id}`);
+    return [this._correctedUser(user)];
   };
 
   _correctedPost = post => {
@@ -35,7 +50,7 @@ class ApiService {
     }
   };
 
-  _correctedComments = comment => {
+  _correctedComment = comment => {
     return {
       userId: comment.userId,
       id: comment.id,
@@ -45,7 +60,7 @@ class ApiService {
     }
   };
 
-  _correctedUsers = user => {
+  _correctedUser = user => {
     return {
       id: user.id,
       name: user.name,
@@ -57,6 +72,4 @@ class ApiService {
   };
 }
 
-export {
-  ApiService
-}
+export default ApiService

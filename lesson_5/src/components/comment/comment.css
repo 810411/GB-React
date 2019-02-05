@@ -4,6 +4,7 @@
     color: darkslateblue;
     border: 1px solid mediumpurple;
     box-shadow: 1px 2px 0 1px lightgray;
+    cursor: pointer;
 }
 
 .comment h3 {

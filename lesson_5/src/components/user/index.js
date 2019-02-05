@@ -1,9 +1,9 @@
 import React from 'react';
 import './user.css';
 
-const User = ({nickname, name, email, phone, website}) => {
+const User = ({id, nickname, name, email, phone, website, handleClick}) => {
   return (
-    <li className="user">
+    <li className="user" onClick={handleClick}>
       <article>
         <h2>{nickname}</h2>
         <hr/>

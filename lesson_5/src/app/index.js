@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {ApiProvider} from "../components/context";
-import {ApiService} from "../api-services";
+import {ApiProvider} from "../context";
+import ApiService from "../api-service";
 import Header from '../components/header';
-import Main from '../components/main';
-import Posts from '../components/pages/posts';
-import Comments from '../components/pages/comments';
-import Users from "../components/pages/users";
+import MainPage from '../components/main-page';
+import {
+  PostPage,
+  PostsPage,
+  CommentPage,
+  CommentsPage,
+  UserPage,
+  UsersPage,
+} from "../components/pages/";
 
 class App extends Component {
   state = {
@@ -21,14 +26,23 @@ class App extends Component {
             <Header/>
             <Switch>
               <Route path="/"
-                     component={Main}
+                     component={MainPage}
                      exact/>
               <Route path="/posts"
-                     component={Posts}/>
+                     component={PostsPage}
+                     exact/>
+              <Route path="/posts/:id"
+                     component={PostPage}/>
               <Route path="/comments"
-                     component={Comments}/>
+                     component={CommentsPage}
+                     exact/>
+              <Route path="/comments/:id"
+                     component={CommentPage}/>
               <Route path="/users"
-                     component={Users}/>
+                     component={UsersPage}
+                     exact/>
+              <Route path="/users/:id"
+                     component={UserPage}/>
             </Switch>
           </main>
         </Router>
