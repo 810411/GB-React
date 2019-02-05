@@ -1,11 +1,11 @@
 import React from 'react';
 import './user.css';
 
-const User = ({id, nickname, name, email, phone, website, handleClick}) => {
+const User = ({nickname, name, email, phone, website, handleClick}) => {
   return (
-    <li className="user" onClick={handleClick}>
+    <li className="user">
       <article>
-        <h2>{nickname}</h2>
+        <h2 onClick={handleClick}>{nickname}</h2>
         <hr/>
         <h3>{name}</h3>
         <p>email: {email}</p>

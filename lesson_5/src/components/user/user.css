@@ -4,11 +4,14 @@
     color: darkslateblue;
     border: 1px solid mediumpurple;
     box-shadow: 1px 2px 0 1px lightgray;
-    cursor: pointer;
 }
 
 .user:nth-child(2n) {
     margin-left: 4px;
+}
+
+.user h2 {
+    cursor: pointer;
 }
 
 .user h2, h3 {

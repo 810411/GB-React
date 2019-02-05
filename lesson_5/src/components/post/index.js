@@ -3,9 +3,9 @@ import './post.css';
 
 const Post = ({title, message, handleClick}) => {
   return (
-    <li className="post" onClick={handleClick}>
+    <li className="post">
       <article>
-        <h2>{title}</h2>
+        <h2 onClick={handleClick}>{title}</h2>
         <hr/>
         <p>{message}</p>
       </article>

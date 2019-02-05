@@ -28,17 +28,17 @@ class App extends Component {
               <Route path="/"
                      component={MainPage}
                      exact/>
-              <Route path="/posts"
+              <Route path="/posts/"
                      component={PostsPage}
                      exact/>
               <Route path="/posts/:id"
                      component={PostPage}/>
-              <Route path="/comments"
+              <Route path="/comments/"
                      component={CommentsPage}
                      exact/>
               <Route path="/comments/:id"
                      component={CommentPage}/>
-              <Route path="/users"
+              <Route path="/users/"
                      component={UsersPage}
                      exact/>
               <Route path="/users/:id"

@@ -21,7 +21,7 @@ const withData = Element => View => {
     }
 
     render() {
-      const {history, location} = this.props;
+      const {history} = this.props;
 
       if (this.state.onLoading) {
         return (
@@ -35,7 +35,7 @@ const withData = Element => View => {
             this.state.data.map(item => (
                 <Element
                   handleClick={() =>
-                    history.push(`${location.pathname}${item.id}`)}
+                    history.push(`${item.id}`)}
                   key={item.id}
                   {...item}/>
               )
