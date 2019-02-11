@@ -1,0 +1,9 @@
+.main {
+    text-align: center;
+}
+
+.main p {
+    padding: 0 10px;
+    text-align: justify;
+    text-indent: 2rem;
+}
