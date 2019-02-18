@@ -1,0 +1,30 @@
+.user {
+    flex: 1 1 48%;
+    justify-content: space-between;
+    margin: 5px 0;
+    color: darkslateblue;
+    border: 1px solid mediumpurple;
+    box-shadow: 1px 2px 0 1px lightgray;
+}
+
+.user:nth-child(2n) {
+    margin-left: 4px;
+}
+
+.user h2 {
+    cursor: pointer;
+}
+
+.user h2, h3 {
+    margin: 0.8rem;
+}
+
+.user p {
+    padding: 0 10px;
+    text-align: justify;
+    text-indent: 1rem;
+}
+
+.user .date {
+    color: darkgray;
+}

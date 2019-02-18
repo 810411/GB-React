@@ -1,0 +1,48 @@
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 10px 0;
+    color: darkslateblue;
+}
+
+.menu .menu-logo {
+    margin-right: 20rem;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 2rem;
+    text-shadow: 1px 2px lightgray;
+}
+
+.menu .menu-logo:hover {
+    color: darkblue;
+}
+
+.menu .menu-logo:active {
+    text-shadow: none;
+}
+
+.menu .menu-item {
+    margin-left: 1rem;
+    padding: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid mediumpurple;
+    border-left: none;
+    border-top: none;
+    box-shadow: 1px 2px 0 1px lightgray;
+}
+
+.menu .menu-item:hover {
+    color: darkblue;
+    border: 1px solid lightskyblue;
+    border-left: none;
+    border-top: none;
+}
+
+.menu .menu-active {
+    border: 1px solid lightskyblue;
+    border-left: none;
+    border-top: none;
+    box-shadow: none;
+}
